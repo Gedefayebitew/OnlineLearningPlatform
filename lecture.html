@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- Created By Gedefaye Bitew Mengist-->
+<!-- Gujarat Technological University-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online lecture website</title>
+    <link rel="stylesheet" href="lecture.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+</head>
+<!--Body Part-->
+<body>
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+        <div class="max-width">
+            <img src="images/log.jpg">
+            <div class="logo"><a href="#">GedeTech </a></div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#services" class="menu-btn">Courses</a></li>
+                <li><a href="#skills" class="menu-btn">Facilities</a></li>
+                <li><a href="login.php" target="_self" style="color: blueviolet;">Sign In</a></li>     
+            </ul> 
+        </div>
+    </nav>
+    <p style="color: white; font-size: 30px;background-color: rgb(82, 82, 117);text-align: center;">
+        Join GedeTeck Challenge starting 15,August  2023.
+         <a style="color: #de1383;" href="index.php"> Register Now!</a>
+
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div></div>
+                <img src="images/classroom.jpeg" style="width: 400px;height: 200px; border-radius: 50%;">
+
+                    <p>🥇Enroll today and embark on a journey of knowledge, <br>
+                        innovation, and endless opportunities.<br>
+                         Let us be your partner in shaping a <br>
+                         world where learning knows no boundaries.</p>
+                    <a href="index.php" target="_self">JOIN FOR FREE</a>
+            </div> 
+            </div>
+        </div>
+
+        <div class="form">
+            <h2>Subscribe Us</h2>
+            <form action="php/handle_register.php" method="post">
+                <input type="text" name="name" placeholder="Enter Your Name" required>
+                <input type="email" name="email" placeholder="Enter Your Email" required>
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <button class="btnn">Register</button>
+            </form>
+            <p class="link">Already have an account? <a href="login.php" style="color: blueviolet;">Login</a></p>
+        </div>
+        
+    </section>
+
+    <!-- about section start -->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h3 class="title" style="color: rgb(18, 172, 159);">About Us</h3>
+            <div class="about-content">
+                <div class="column-left">
+                    <img src="images/k.jpg" alt=""><br><br><br><br>
+                    
+                </div>
+                <div class="column-right">
+                 <h1 style="color: rgb(18, 172, 159);">🏆Thriving Learner Community:</h1> 
+                    <p>Our online teaching platform has blossomed 
+                    
+                </p>
+                <h1 style="color: rgb(18, 172, 159);">🏆Empowering Learning Journeys: </h1>
+                <p>Throughout the year, we have witnessed countless 
+                    learners embarking on empowering learning journeys,
+                </p>
+                <h1 style="color: rgb(18, 172, 159);">🏆Innovative Teaching Approaches:</h1> 
+                    <p>Our esteemed educators have consistently pushed.     
+                    </p>  
+                    <h1 style="color: rgb(18, 172, 159);">🏆Tech-Forward Advancements:</h1>
+                    <p> We have invested in cutting-edge technologies, making learning accessible 
+                    </p> 
+                   <a href="index.php" target="_self">EXPLORE US</a>
+                   <br><br>
+                   <hr><hr><hr><hr><hr><hr><hr><hr><hr>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- course section start -->
+    <section class="services" id="services">
+        <div class="max-width">
+            <h2 class="title" style="color: rgb(18, 172, 159);"> Courses</h2>
+            <div class="video-container">
+                <div class="video-row">
+                    <h1 style="color: rgb(18, 172, 159);">Web Development</h1><br>
+                <video controls>
+                  <source src="images/c.mp4" type="video/mp4">
+                  <!-- Add additional source elements for different video formats (e.g., WebM, Ogg) -->
+                  Your browser does not support the video tag.
+                </video>
+                <br><br>
+                <p style="background-color: rgb(208, 220, 220);">"Embark on a transformative journey through
+                     web development. Embrace challenges, create wonders, and shape the 
+                     digital world with your coding skills."
+                     </p>
+                       <br>
+                    <a href="custom_header.php"><h1>Enroll here</h1></a></a><br>
+                    <hr><hr><hr><hr><hr><hr><hr>
+              </div>
+              <div class="video-row">
+                <h1 style="color: rgb(18, 172, 159);">App Development</h1><br>
+                <video controls>
+                    <source src="images/b.mp4" type="video/mp4" style="height: 10px;">
+                    <!-- Add additional source elements for different video formats (e.g., WebM, Ogg) -->
+                    Your browser does not support the video tag.
+                  </video>
+                  <br><br>
+                  <p style="background-color: rgb(194, 191, 188);">Enter the world of app development,
+                     where your ideas come to life. Build apps that impact lives and shape the future of
+                      technology
+                     
+                    </p>
+                    <a href="custom_header.php"><h1>Enroll here</h1></a></a><br>  
+                    <hr><hr><hr><hr><hr><hr><hr>
+                </div>
+                <div class="video-row">
+                    <h1 style="color: rgb(18, 172, 159);">Machine Learning</h1><br>
+                    <video controls>
+                        <source src="a.mp4" type="video/mp4">
+                        <!-- Add additional source elements for different video formats (e.g., WebM, Ogg) -->
+                        Your browser does not support the video tag.
+                      </video>
+                      <br><br>
+                      <p>Embrace the power of machine learning. Unlock insights, 
+                        solve complex problems, and reshape industries with 
+                        cutting-edge AI algorithms and data-driven innovation."
+                        </p>
+                        <a href="custom_header2.php"><h1>Enroll here</h1></a></a><br>
+                        <hr><hr><hr><hr><hr><hr>
+                    </div>
+              </div>
+        </div>
+    </section>
+    <!-- Facilities section start -->
+    <section class="skills" id="skills" style="background-color: whitesmoke">
+        <div class="max-width">
+            <h2 class="title" style="color: rgb(18, 172, 159);">Facilities</h2>
+            <div class="skills-content">
+                <div class="column left">
+                    <div class="text" style="color: rgb(18, 172, 159);">🎓Embrace the Power of Flexibility:</div>
+                    <p> 
+                        Learn at your own pace, from the comfort of your home, 
+                        and fit your studies seamlessly into your busy schedule. 
+                        Our online platform is designed to adapt to your lifestyle, ensuring
+                         a perfect balance between work, personal life, and professional development.
+                    </p>
+                    <div class="text" style="color: rgb(18, 172, 159);"> 👩‍🏫 Expert Guidance, Unparalleled Support:</div>
+                    <p>
+                        Our team of experienced instructors and mentors are here to 
+                        guide you every step of the way. Whether you're a seasoned 
+                        educator or just starting, our supportive community will 
+                        inspire and uplift you to achieve your full potential.
+                    </p>
+                    <div class="text" style="color: rgb(18, 172, 159);"> 🌐 Connect with a Global Community:</div>
+                    <p>
+                        Embrace diversity and connect with educators from around 
+                        the world. Collaborate, share insights, and build lasting relationships 
+                        with like-minded individuals who share your passion for education. 
+                        </p>
+                        <a href="#">Know More</a>
+                </div>
+                <div class="column right">
+                    <div class="bars">
+                        <img src="images/classroom.jpeg" style="border-radius: 50%;">
+                        <p><br>Our online teaching Platform, where knowledge meets 
+                            innovation, and inspiration fuels growth! We are 
+                            thrilled to introduce you to a transformative
+                             learning journey that will empower you to become
+                              exceptional educators and change-makers in the 
+                              digital age.
+                        </p>
+            </div>
+        </div>
+    </section>
+    <hr> <hr>
+   
+    <!-- contact section start -->
+     <!-- Include the Contact Section -->
+     <?php include 'contact.php'; ?>
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h4 class="title">Contact me</h2>
+            <div class="contact-content">
+                <div class="column left">
+                    <div class="text">Contact</div>
+                    <p>For any suggestions,collaboration and queries don't
+                         hestate to contact us.We are always ready to work 
+                         with everyone.</p>
+                 <div class="icons">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <div class="info">
+                                <div class="head">Name</div>
+                                <div class="sub-title">Gedefaye Bitew Mengist</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info">
+                                <div class="head">Address</div>
+                                <div class="sub-title">GTU,Gujarat, India</div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">Email</div>
+                                <div class="sub-title">gedefaye89email@gmail.com</div>
+                            </div>
+                        </div>                                                      
+                    </div>
+                </div>                
+                <div class="column right">
+                    <div class="text">Message me</div>
+                    <form action="#">
+                        <div class="fields">
+                            <div class="field name">
+                                <input type="text" placeholder="Name" required>
+                            </div>
+                            <div class="field email">
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="field textarea">
+                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                        </div>
+                        <div class="button-area">
+                            <button type="submit">Send message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer section start -->
+    <footer>
+    <br>
+    <span>Developed By:<span><a href="#">Gedefaye Bitew Mengist</a></span> | July 2023 .|GPERI,GTU
+    </footer>
+    <script src="a.js"></script>
+</body>
+</html>

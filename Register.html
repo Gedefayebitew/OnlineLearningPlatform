@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ccc;    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input, select {
+      display: block;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 100%;
+    }
+    button {
+      background-color: #3cbfa7;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form action="Register.php" method="POST">
+    <h2>Registration</h2>
+    <input type="text" name="fullname" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <select name="country" required>
+      <option value="">Select Country</option>
+      <option value="country1">Ethiopia</option>
+      <option value="country1">India</option>
+      <option value="country1">Brazil</option>
+      <option value="country1">Russia</option>
+      <option value="country1">China</option>
+      <option value="country1">USA</option>
+      <option value="country1">South Africa</option>
+      <option value="country1">Eritria</option>
+      <option value="country1">Italy</option>
+      <option value="country1">Britain</option>
+      <option value="country1">Franch</option>
+      <option value="country1">Kenya</option>
+      <option value="country1">Uganda</option>
+
+      <option value="country2">Tanzania</option>
+      <option value="country3">Nigeria</option>
+      <!-- Add more country options here as needed -->
+    </select>
+    <select name="course" required>
+      <option value="">Gender</option>
+      <option value="course1">Male</option>
+      <option value="course2">Female</option>
+      <option value="course3">Unknown</option>
+      <!-- Add more course options here as needed -->
+    </select>
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>

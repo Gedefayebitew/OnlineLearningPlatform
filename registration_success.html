@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Success</title>
+    <style>
+        /* Add your custom CSS styles for the popup here */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Successful!</h1>
+    <!-- Add the popup notification HTML here -->
+    <div class="popup">
+        <p>Thank you for registering.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <!-- JavaScript for showing and closing the popup -->
+    <script>
+        // Function to close the popup
+        function closePopup() {
+            const popup = document.querySelector('.popup');
+            popup.style.display = 'none';
+        }
+
+        // Show the popup when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            const isRegistered = <?php echo isset($_SESSION['registered']) ? 'true' : 'false'; ?>;
+            if (isRegistered) {
+                const popup = document.querySelector('.popup');
+                popup.style.display = 'block';
+                <?php unset($_SESSION['registered']); ?>;
+            }
+        });
+    </script>
+</body>
+</html>
