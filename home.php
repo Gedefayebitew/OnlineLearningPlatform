@@ -1,21 +1,41 @@
 <?php
-include 'components/connect.php';
-if(isset($_COOKIE['user_id'])){
-   $user_id = $_COOKIE['user_id'];
-}else{
-   $user_id = '';
+// components/connect.php (Database connection)
+$servername = "localhost";
+$username = "root";
+$password = '';
+$dbname = "my_login_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-$select_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
-$select_likes->execute([$user_id]);
-$total_likes = $select_likes->rowCount();
 
-$select_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
-$select_comments->execute([$user_id]);
-$total_comments = $select_comments->rowCount();
+if (isset($_COOKIE['user_id'])) {
+    $user_id = $_COOKIE['user_id'];
+} else {
+    $user_id = '';
+}
 
-$select_bookmark = $conn->prepare("SELECT * FROM `bookmark` WHERE user_id = ?");
-$select_bookmark->execute([$user_id]);
-$total_bookmarked = $select_bookmark->rowCount();
+// For the likes table
+$select_likes = $conn->prepare("SELECT * FROM likes WHERE user_id = ?");
+$select_likes->bind_param("i", $user_id);
+$select_likes->execute();
+$result_likes = $select_likes->get_result();
+$total_likes = $result_likes->num_rows;
+
+// For the comments table
+$select_comments = $conn->prepare("SELECT * FROM comments WHERE user_id = ?");
+$select_comments->bind_param("i", $user_id);
+$select_comments->execute();
+$result_comments = $select_comments->get_result();
+$total_comments = $result_comments->num_rows;
+
+// For the bookmark table
+$select_bookmark = $conn->prepare("SELECT * FROM bookmark WHERE user_id = ?");
+$select_bookmark->bind_param("i", $user_id);
+$select_bookmark->execute();
+$result_bookmark = $select_bookmark->get_result();
+$total_bookmarked = $result_bookmark->num_rows;
 
 ?>
 
@@ -36,13 +56,12 @@ $total_bookmarked = $select_bookmark->rowCount();
 </head>
 <body>
 
-<?php include 'components/user_header.php'; ?>
 
 <!-- quick select section starts  -->
 
 <section class="quick-select">
 
-   <h1 class="heading">quick options</h1>
+   <h1 class="heading">Web Development</h1>
 
    <div class="box-container">
 
@@ -75,14 +94,12 @@ $total_bookmarked = $select_bookmark->rowCount();
       <div class="box">
          <h3 class="title">top categories</h3>
          <div class="flex">
-            <a href="search_course.php?"><i class="fas fa-code"></i><span>development</span></a>
-            <a href="#"><i class="fas fa-chart-simple"></i><span>business</span></a>
-            <a href="#"><i class="fas fa-pen"></i><span>design</span></a>
-            <a href="#"><i class="fas fa-chart-line"></i><span>marketing</span></a>
-            <a href="#"><i class="fas fa-music"></i><span>music</span></a>
-            <a href="#"><i class="fas fa-camera"></i><span>photography</span></a>
+            <a href="search_course.php?"><i class="fas fa-code"></i><span>Frontend development</span></a>
+            <a href="#"><i class="fas fa-code"></i><span>Backend development</span></a>
+            <a href="#"><i class="fas fa-cog"></i><span>Responsive Web design</span></a>
+            <a href="#"><i class="fas fa-cog"></i><span>Deployment and Hosting</span></a>
             <a href="#"><i class="fas fa-cog"></i><span>software</span></a>
-            <a href="#"><i class="fas fa-vial"></i><span>science</span></a>
+            
          </div>
       </div>
 
@@ -99,52 +116,24 @@ $total_bookmarked = $select_bookmark->rowCount();
       </div>
 
       <div class="box tutor">
-         <h3 class="title">become a tutor</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, laudantium.</p>
-         <a href="admin/register.php" class="inline-btn">get started</a>
+         <h3 class="title">Join as an instructor</h3>
+         <p> Let us know your availability and interest in this platform</p>
+         <a href="register.html" class="inline-btn">get started</a>
       </div>
 
    </div>
 
 </section>
+
+<!-- quick select section ends -->
+
+<!-- courses section starts  -->
+
 <section class="courses">
-   <h1 class="heading">latest courses</h1>
-   <div class="box-container">
-      <?php
-         $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE status = ? ORDER BY date DESC LIMIT 6");
-         $select_courses->execute(['active']);
-         if($select_courses->rowCount() > 0){
-            while($fetch_course = $select_courses->fetch(PDO::FETCH_ASSOC)){
-               $course_id = $fetch_course['id'];
 
-               $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE id = ?");
-               $select_tutor->execute([$fetch_course['tutor_id']]);
-               $fetch_tutor = $select_tutor->fetch(PDO::FETCH_ASSOC);
-      ?>
-      <div class="box">
-         <div class="tutor">
-            <img src="uploaded_files/<?= $fetch_tutor['image']; ?>" alt="">
-            <div>
-               <h3><?= $fetch_tutor['name']; ?></h3>
-               <span><?= $fetch_course['date']; ?></span>
-            </div>
-         </div>
-         <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" class="thumb" alt="">
-         <h3 class="title"><?= $fetch_course['title']; ?></h3>
-         <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view playlist</a>
-      </div>
-      <?php
-         }
-      }else{
-         echo '<p class="empty">no courses added yet!</p>';
-      }
-      ?>
-   </div>
-   <div class="more-btn">
-      <a href="courses.php" class="inline-option-btn">view more</a>
-   </div>
+   
 </section>
-<?php include 'components/footer.php'; ?>
 <script src="js/script.js"></script>
+
 </body>
 </html>
